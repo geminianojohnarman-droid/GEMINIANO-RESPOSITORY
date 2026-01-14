@@ -1,0 +1,15 @@
+import math
+
+def get_inductor_value_of_material(RelativeP, Permeability, turns, area, length):
+    inductance = (RelativeP * Permeability * turns * area) / length
+    print("Inductance is: ", inductance)
+    return inductance
+
+
+def get_inductive_reactance(frequency, inductance):
+    reactance = 2 * math.pi * frequency * inductance
+    print("Inductance is: ", inductance)
+    return inductance
+
+if __name__ == '__main__':
+    get_inductive_reactance(1000, 0.00025)
