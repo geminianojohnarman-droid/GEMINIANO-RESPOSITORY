@@ -1,0 +1,15 @@
+
+def get_resistance(resistivity, length, area):
+    resistance = resistivity * (length / area)
+    print("Resistance of material is: ", + str(resistance))
+    return resistance
+
+
+def get_resistance_by_ohms_law(voltage, current):
+    resistance = voltage / current
+    print("Resistance is: " + str(resistance) + " Ohms")
+    return resistance
+
+
+if __name__ == '__main__':
+    get_resistance_by_ohms_law(0.05, 5)
