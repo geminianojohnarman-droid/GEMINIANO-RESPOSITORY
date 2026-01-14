@@ -1,0 +1,31 @@
+
+import math
+
+#ErEo(A/d)
+def get_capacitance_by_material(Permeability, Area, Distance):
+    dielectricCon = 8.854 * 10e-12 #F/m
+    Capacitance = (Permeability * dielectricCon * Area) / Distance
+    print(f"Capacitance of Material is: {Capacitance}")
+    return Capacitance
+
+
+def get_capacitance_by_CV(Charge, Voltage):
+    Capacitance = Charge / Voltage
+    print(f"Capacitance by CV is: {Capacitance} farad")
+    return Capacitance
+
+
+def get_capacitance_current(Capacitance, DVoverDT):
+    ic = Capacitance * DVoverDT
+    print(f"Capacitor Current: {ic}")
+    return ic
+
+
+def get_capacitive_reactance(frequency, capacitance):
+    reactance = 1 / (2 * math.pi * frequency * capacitance)
+    print(f"Capacitive reactance is: {reactance}")
+    return reactance
+
+
+if __name__ == '__main__':
+    get_capacitance_by_CV(0.05, 5)
