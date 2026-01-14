@@ -1,0 +1,177 @@
+# Function - Built In Function & User Defined Function
+
+# def ---> the keyword for def
+# get_the_sum ---> function name
+# (input1, input2) ---> parameters of function; With "(x, y)" or Without "()"
+# : ---> colon ends the function definition
+
+def get_the_sum(input1, input2):
+    sum = input1 + input2
+    print(sum)
+
+a = 32
+b = 35
+get_the_sum(a, b)
+
+a = 24
+b = 45
+get_the_sum(a, b)
+
+
+# Function /w Parameters and Return
+
+# return = the output terminal
+
+def get_the_sum(input1, input2):
+    sum = input1 + input2
+    print(sum)
+    return sum
+a = 12
+b = 27
+c = 9
+d = 38
+
+print(get_the_sum(a, b) + get_the_sum(b, d))
+
+
+# ======================================================= #
+
+# Black Box ---> Input to Output; you cant see the coding/programming going on
+# White Box ---> Input to Output; the coding that is used can be seen
+
+# ======================================================= #
+
+
+# Function /w no parameters and no return
+
+import time
+
+def print_countdown():
+    print("Countdown will start in : ")
+    for i in range(10, 0, -1):
+        time.sleep(1)
+        print(i)
+
+print_countdown() # Calling the Function/Function Calling
+
+
+# ======================================================== #
+
+
+# Simple ATM Machine Flow
+# ctrl + shift + -
+# ctrl + shift + =
+
+'''
+welcome_message():
+card_reader():
+input_pin_number(pinNumber): return isValid
+transaction_selection(transaction):
+transaction_validation(amount, balance) return isValid
+card_ejection():
+cash_dispension():
+print_receipt(amount, balance):
+'''
+
+import time
+
+def welcome_message():
+    time.sleep(1)
+    print("Welcome user to the Demon Slayer Corp Bank")
+    time.sleep(1)
+    print("--------------------------------")
+    time.sleep(1)
+    print("Please insert your card")
+    time.sleep(1)
+    print("--------------------------------")
+
+def card_reader(isCardInserted):
+    if isCardInserted.upper() == "YES":
+        print("Your card has been inserted")
+        return True
+    else:
+        return False
+
+def input_and_validate_pin_number():
+    for i in  range(4):
+
+        if i == 3:
+            print("You have inputted the wrong pin number 3 times.")
+            time.sleep(1)
+            print("To make sure of the cards safety, we have Blocked your card.")
+            time.sleep(1)
+            print("Please contact our bank for more details.")
+            return False
+
+        inputPinNumber = input("Please insert your pin number: ")
+
+        if inputPinNumber == pin_number:
+            return True
+        else:
+            print("Invalid PIN Number. Please Try Again :)")
+
+def transaction_selection():
+    transaction = input("Please select your transaction: ")
+    return transaction
+
+def transaction_validation(amount, balance):
+    if balance > amount:
+        return True
+    else:
+        print("... Please call a trusted adult")
+        return False
+
+def card_ejection():
+    #call driver for card ejection mechanism
+    print("Your card has been ejected. Please get your card.")
+    time.sleep(1)
+
+def cash_dispensing():
+    #call driver for cash dispension
+    print("Please get your cash")
+
+def print_receipt(amount):
+    global balance
+    balance = balance - amount
+    print("Your remaining Balance is " + str(balance))
+
+    print("Please get your receipt")
+
+
+amount = 0
+balance = 545625
+pin_number = "020701"
+
+while True: # The while condition is like the loop condition
+    welcome_message()
+    isCardInserted = input("Is your card inserted? ")
+    if not card_reader(isCardInserted):
+        continue
+    print("Next Step")
+    if not input_and_validate_pin_number():
+        continue
+    print("Next Step")
+
+    transaction = transaction_selection()
+    if transaction.lower() == "withdraw":
+        amount = int(input("Please insert your amount: "))
+        if transaction_validation(amount, balance):
+            print("Operation [Withdrawal] has started")
+            time.sleep(3)
+            card_ejection()
+            time.sleep(2)
+            cash_dispensing()
+            time.sleep(2)
+            print_receipt(amount)
+            time.sleep(1)
+
+
+        else:
+            card_ejection()
+            continue
+    elif transaction.lower() == "check balance":
+
+        print("Operation [Check Balance} has started")
+    else:
+        card_ejection()
+        continue
