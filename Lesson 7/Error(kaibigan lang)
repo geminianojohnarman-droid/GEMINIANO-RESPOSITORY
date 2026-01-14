@@ -1,0 +1,80 @@
+import tkinter as tk
+from tkinter import messagebox
+# Removed 'import time' and 'import threading' as they are not needed for sequential blocking alerts
+
+# The sequence of error notices to be displayed
+ERROR_SEQUENCE = [
+    ("FATAL ERROR: Initialization Failure",
+     "Module 'NetCore.dll' failed to load. (Error 0x80070002)\n\nClick OK to proceed to the next alert."),
+    ("DATA CORRUPTION WARNING",
+     "Disk write cache failed. Possible loss of unsaved data.\n\nClick OK to proceed to the next alert."),
+    ("SECURITY ALERT",
+     "Unauthorized access detected on port 22. Connection terminated.\n\nClick OK to proceed to the next alert."),
+    ("SYSTEM ERROR", "Critical memory resources exhausted. Shut down your device."),
+    ("FILE CORRUPTED", "WARNING: Multiple files are found corrupted during this process. \n\nClick OK to proceed to the next alert"),
+("FATAL ERROR: Initialization Failure",
+     "Module 'NetCore.dll' failed to load. (Error 0x80070002)\n\nClick OK to proceed to the next alert."),
+    ("DATA CORRUPTION WARNING",
+     "Disk write cache failed. Possible loss of unsaved data.\n\nClick OK to proceed to the next alert."),
+    ("SECURITY ALERT",
+     "Unauthorized access detected on port 22. Connection terminated.\n\nClick OK to proceed to the next alert."),
+    ("SYSTEM ERROR", "Critical memory resources exhausted. Shut down your device."),
+    ("FILE CORRUPTED", "WARNING: Multiple files are found corrupted during this process. \n\nClick OK to proceed to the next alert"),
+("FATAL ERROR: Initialization Failure",
+     "Module 'NetCore.dll' failed to load. (Error 0x80070002)\n\nClick OK to proceed to the next alert."),
+    ("DATA CORRUPTION WARNING",
+     "Disk write cache failed. Possible loss of unsaved data.\n\nClick OK to proceed to the next alert."),
+    ("SECURITY ALERT",
+     "Unauthorized access detected on port 22. Connection terminated.\n\nClick OK to proceed to the next alert."),
+    ("SYSTEM ERROR", "Critical memory resources exhausted. Shut down your device."),
+    ("FILE CORRUPTED", "WARNING: Multiple files are found corrupted during this process. \n\nClick OK to proceed to the next alert"),
+("FATAL ERROR: Initialization Failure",
+     "Module 'NetCore.dll' failed to load. (Error 0x80070002)\n\nClick OK to proceed to the next alert."),
+    ("DATA CORRUPTION WARNING",
+     "Disk write cache failed. Possible loss of unsaved data.\n\nClick OK to proceed to the next alert."),
+    ("SECURITY ALERT",
+     "Unauthorized access detected on port 22. Connection terminated.\n\nClick OK to proceed to the next alert."),
+    ("SYSTEM ERROR", "Critical memory resources exhausted. Shut down your device."),
+    ("FILE CORRUPTED", "WARNING: Multiple files are found corrupted during this process. \n\nClick OK to proceed to the next alert"),
+("FATAL ERROR: Initialization Failure",
+     "Module 'NetCore.dll' failed to load. (Error 0x80070002)\n\nClick OK to proceed to the next alert."),
+    ("DATA CORRUPTION WARNING",
+     "Disk write cache failed. Possible loss of unsaved data.\n\nClick OK to proceed to the next alert."),
+    ("SECURITY ALERT",
+     "Unauthorized access detected on port 22. Connection terminated.\n\nClick OK to proceed to the next alert."),
+    ("SYSTEM ERROR", "Critical memory resources exhausted. Shut down your device."),
+    ("FILE CORRUPTED", "WARNING: Multiple files are found corrupted during this process. \n\nClick OK to proceed to the next alert")
+]
+
+
+def show_error_notice():
+    """
+    Displays each error notice from the list sequentially.
+    Execution is blocked by each messagebox until the user clicks 'OK',
+    which fulfills the requirement of one click leading to the next alert.
+    """
+    # 1. Initialize and hide the main Tkinter window (required for messagebox)
+    root = tk.Tk()
+    root.withdraw() # Hides the main Tkinter window frame
+
+    print("\n--- Starting Sequential Error Alerts ---")
+
+    # 2. Loop through the sequence, displaying one box at a time
+    for i, (title, message) in enumerate(ERROR_SEQUENCE):
+        print(f"STATUS: Showing Alert {i + 1}: '{title}'. Script paused until OK is clicked...")
+
+        # This function (messagebox.showerror) is MODAL and BLOCKS the script
+        # until the user clicks 'OK'.
+        messagebox.showerror(title, message)
+
+        print(f"STATUS: User clicked OK on Alert {i + 1}. Proceeding to next alert.")
+
+    print("--- All Sequential Alerts Complete ---")
+
+    # 3. Clean up the hidden root window
+    root.destroy()
+
+
+# Run the function to start the chain reaction of error notices
+if __name__ == "__main__":
+    show_error_notice()
