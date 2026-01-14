@@ -1,0 +1,10 @@
+import In_Class
+
+student1_name = "Ivan"
+student1_grade = "1.00"
+student1_subject = ["Algebra", "Physics"]
+
+In_Class.print_student_info_function(student1_name, student1_grade, student1_subject)
+
+student1 = In_Class.Student("Ivan", 1.00, ["Acting", "Music Writing"])
+student1.print_student_info_method()
