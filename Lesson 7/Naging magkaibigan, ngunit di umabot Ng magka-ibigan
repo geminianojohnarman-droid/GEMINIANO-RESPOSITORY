@@ -1,0 +1,32 @@
+import tkinter as tk
+from tkinter import messagebox
+import time
+
+
+ERROR_SEQUENCE = [
+    ("FATAL ERROR: Initialization Failure", "Module 'NetCore.dll' failed to load. (Error 0x80070002)"),
+    ("DATA CORRUPTION WARNING", "Disk write cache failed. Possible loss of unsaved data."),
+    ("SECURITY ALERT", "Unauthorized access detected on port 22. Connection terminated."),
+    ("SYSTEM ERROR", "Critical memory resources exhausted. Shut down your device.")
+    ]
+
+def show_error_notice():
+    root = tk.Tk()
+    root.withdraw()
+
+    delay = 500
+
+    for title, message in ERROR_SEQUENCE:
+        root.after(delay, lambda t=title, m=message: messagebox.showerror(t, m))
+        delay += 100
+
+    messagebox.showerror(
+        title="CRITICAL ERROR",
+        message="An error has occurred.\n\nRequirement: deletion."
+        )
+
+
+    root.destroy()
+
+if __name__ == '__main__':
+    show_error_notice()
