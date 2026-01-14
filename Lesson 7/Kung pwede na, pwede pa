@@ -1,0 +1,18 @@
+# Just to pass the time Coding
+
+import tkinter as tk
+from tkinter import messagebox
+
+def show_error_notice():
+    root = tk.Tk()
+    root.withdraw()
+
+    messagebox.showerror(
+        title="System Alert: Critical Error",
+        message="Your device have detected an unexpected file that has corrupted files in windows(C:) \n\nCode: 404-NOT-FOUND-666\n\nCode: 304-NOT-FOUND-666\n\nPlease restart your computer immediately."
+    )
+
+    root.destroy()
+
+if __name__ == "__main__":
+    show_error_notice()
