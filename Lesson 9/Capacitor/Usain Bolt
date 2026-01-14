@@ -1,0 +1,34 @@
+
+
+from Capacitor import Capacitance
+from Inductor import Inductance
+from Resistor import Resistance
+
+
+while True:
+    selector = input("Please select calculator: ")
+
+    match selector:
+        case "C_CV":
+            print("Capacitance Calulator")
+
+            charge = float(input("Please enter the charge: "))
+            voltage = float(input("Please enter the voltage: "))
+
+            Capacitance.get_capacitance_by_CV(charge, voltage)
+
+        case "R_Ohms":
+            print("Resistance Calulator")
+
+            voltage = float(input("Please enter the voltage: "))
+            current = float(input("Please enter the current: "))
+
+            Resistance.get_resistance_by_ohms_law(voltage, current)
+
+        case "L_REAC":
+            print("Inductance Calulator")
+
+            frequency = float(input("Please enter the frequency: "))
+            inductance = float(input("Please enter the inductance: "))
+
+            Inductance.get_inductive_reactance(frequency, inductance)
