@@ -1,0 +1,209 @@
+# If, Elif, and Else (Words)
+
+ThyShape = input("Enter a Shape: ")
+
+if ThyShape == "square":
+    print("square")
+elif ThyShape == "triangle":
+    print("triangle")
+elif ThyShape == "circle":
+    print("circle")
+else:
+    print("invalid input")
+
+
+#===================================================
+
+# If, Elif, and Else (Numbers)
+
+My_Grade = float(input("Enter your Grade: "))
+
+if My_Grade >= 97 :
+    print("1.0")
+elif My_Grade >= 94 :
+    print("1.25")
+elif My_Grade >= 91 :
+    print("1.50")
+elif My_Grade >= 88:
+    print("1.75")
+elif My_Grade >= 85:
+    print("2.0")
+elif My_Grade >= 82:
+    print("2.25")
+elif My_Grade >= 79:
+    print("2.5")
+elif My_Grade >= 76:
+    print("2.75")
+elif My_Grade >= 75:
+    print("3.0")
+elif My_Grade >= 65:
+    print("5.0")
+else:
+    print("W")
+
+
+#=================================================================
+
+# If, Elif, and Else (Multiple Choices/Answers)
+
+Citizenship = input("Enter your Citizenship: ")
+Age = float(input("Enter your Age: "))
+Registered = input("Are you Registered? ")
+
+if Citizenship == "Filipino" and Age >= 18:
+    if Registered == "Yes":
+        print("You are allowed to vote!")
+    else:
+        print("You are not allowed to vote, but you can register")
+elif Citizenship == "Filipino" and Age < 18:
+    print("You are not allowed to vote. Please wait till you turn 18 and register")
+else:
+    print("You are not allowed to vote nor register.")
+
+
+#=================================================================
+
+# Loop Statement
+
+print("before loop")
+for x in range(0, 10, 1):
+    print("x value is : " + str(x))
+print("after loop")
+
+#==========================
+
+print("before loop")
+for x in range(10):
+    print("x value is : " + str(x))
+print("after loop")
+
+#==========================
+
+print("before loop")
+for xx in range(0, 10):
+    print("x value is : " + str(xx))
+print("after loop")
+
+
+#=========================================================
+
+# Iteration = for each
+
+FruitsList = ["apple", "banana", "orange"]
+for fruit in FruitsList:
+    print("Fruit List Include: " + fruit)
+
+#=========================================================
+
+myString = "Pneumonoultramicroscopicsilicovolcanoconiosis"
+for char in myString:
+    print(char.upper())
+
+
+#=============================================================
+
+# Print the Values
+
+MyInfo = {
+    "First Name": "John Arman",
+    "Middle Name": "Lagat",
+    "Last Name": "Geminiano",
+    "Age": 19,
+    "Gender": "Male",
+    "Blood Type": "N/A",
+    "Height": 173
+}
+
+for key in MyInfo:
+    print(key + " = " + str(MyInfo[key]))
+
+for value in MyInfo.values():
+    print(value)
+
+
+#=================================================================
+
+# To Reverse the Word
+
+OriginalWord = "Mahal kita, pero mahal mo paden siya"
+print("Original Word : " + OriginalWord)
+NewWord = ""
+
+for x in OriginalWord:
+    NewWord = x + NewWord
+
+print("NewWord : " + NewWord)
+print(OriginalWord[::-1])  # alternative way to Reverse
+
+
+#===========================================================
+
+# Break and Continue
+
+print("before loop")
+
+for i in range(10):
+    if i % 4 == 0:
+        print("Even Number: " + str(i))
+        continue
+    elif i > 7:
+        print("i is greater than 7")
+        break
+    print("i's value now is: " + str(i))
+
+print("after loop")
+
+
+#============================================================
+
+import time
+
+IsConnected = "No"
+
+for retry in range(4):
+    time.sleep(2)
+    IsConnected = input("Is connected? ")
+    if IsConnected == "Yes":
+        print("Now Connected")
+        time.sleep(1)
+        break
+    else:
+        print("Retry timeout")
+
+print("Processing your request...")
+
+
+#============================
+
+# Nested Loop
+
+for i in range(10):
+    print(str(i) + "============================")
+    for x in range(10):
+        print(x)
+
+
+#===============================================
+
+charList = [
+    'a','b','c','d','e','f','g','h','i','j','k','l',
+    'm','n','o','p','q','r','s','t','u','v','w','x',
+    'y','z','A','B','C','D','E','F','G','H','I','J',
+    'K','L','M','N','O','P','Q','R','S','T','U','V',
+    'W','X','Y','Z','0','1','2','3','4','5','6','7',
+    '8','9'," ","!","@","#","$","%","^","&","*","(",")",
+    "-","_","=","+","[","]","{","}",";",":","'",'"',
+    ",","<",".",">","/","?","\\","|","`","~"
+]
+
+# Simple Encryption
+
+myInput = 'GoodAfternoonUser'
+output = ''
+key = 3
+
+for letter in myInput:
+    indexCounter = charList.index(letter)
+    output = output + charList[indexCounter + key]
+
+print(output)
