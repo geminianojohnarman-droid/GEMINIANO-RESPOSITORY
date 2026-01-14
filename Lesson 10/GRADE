@@ -1,0 +1,105 @@
+# Method
+# Function = def
+
+'''''
+student1_name = "Ivan"
+student1_grade = "1.00"
+student1_subject = ["Algebra", "Physics"]
+
+student2_name = "Till"
+student2_grade = "1.75"
+student2_subject = ["Geometry", "Chemistry"]
+
+student3_name = "Mizi"
+student3_grade = "1.50"
+student3_subject = ["English", "Communications"]
+
+
+def print_student_info_function(name, grade, subject):
+    print(f"name: {name} grade: {grade} course: {subject}")
+
+
+if __name__ == "__main__":
+    print_student_info_function(student1_name, student1_grade, student1_subject)
+    print_student_info_function(student2_name, student2_grade, student2_subject)
+    print_student_info_function(student3_name, student3_grade, student3_subject)
+'''''
+
+
+# self = 'this' / 'this' student
+# __init__ = Initialize
+# static method
+# all methods are functions, but not all functions are methods
+
+class Student:
+    DEFAULT_SUBJECT = ["Mathematics in the Modern World", "Electronics"]
+
+    def __init__(self, name, grade, subject):
+        self.name = name
+        self.grade = grade
+        self.subject = subject
+
+    def print_student_info_method(self):
+        print(f"name: {self.name} grade: {self.grade} course: {self.subject}")
+
+    @classmethod
+    def create_default_student(cls, name, grade):
+        print(f"name: {name} grade: {grade} course: {cls.DEFAULT_SUBJECT}")
+        return cls(name, grade, cls.DEFAULT_SUBJECT)
+
+    @staticmethod
+    def Is_GradePassing(grade):
+        return grade <= 3.00
+
+
+if __name__ == "__main__":
+    student1 = Student("Ivan", 1.00, ["Acting", "Music Writing"])
+    student1.print_student_info_method()
+    if Student.Is_GradePassing(student1.grade):
+        print("PASSED")
+    else:
+        print("FAILED")
+
+
+    student2 = Student.create_default_student("Acorn", 5.00)
+    if Student.Is_GradePassing(student2.grade):
+        print("PASSED")
+    else:
+        print("FAILED")
+
+'''''
+    student2 = Student("Till", 1.75, ["Music Writing", "Physical education"])
+    student2.print_student_info_method()
+    if Student.Is_GradePassing(student2.grade):
+        print("PASSED")
+    else:
+        print("FAILED")
+
+    student3 = Student("Mizi", 1.50, ["English", "Communications"])
+    student3.print_student_info_method()
+    if Student.Is_GradePassing(student3.grade):
+        print("PASSED")
+    else:
+        print("FAILED")
+
+    student4 = Student("Sua", 5.00, ["Acting", "Broadcasting"])
+    student4.print_student_info_method()
+    if Student.Is_GradePassing(student4.grade):
+        print("PASSED")
+    else:
+        print("FAILED")
+
+    student5 = Student("Hyuna", 1.25, ["Archery", "Broadcasting"])
+    student5.print_student_info_method()
+    if Student.Is_GradePassing(student5.grade):
+        print("PASSED")
+    else:
+        print("FAILED")
+
+    student6 = Student("Luka", 1.00, ["Acting", "Music Writing"])
+    student6.print_student_info_method()
+    if Student.Is_GradePassing(student6.grade):
+        print("PASSED")
+    else:
+        print("FAILED")
+'''''
