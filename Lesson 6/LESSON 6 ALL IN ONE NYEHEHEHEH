@@ -1,0 +1,125 @@
+# DICTIONARY
+# KEY : VALUE
+
+StudentInformation = {
+    "Name" : "Geminiano, John Arman L.",
+    "Age" : 19,
+    "Citizenship" : "Filipino",
+    "Date Of Birth" : "11/11/2006",
+    "Gender" : "Male"
+}
+
+print(StudentInformation)
+print(StudentInformation["Age"])
+print(StudentInformation["Date Of Birth"])
+print(StudentInformation["Name"])
+
+StudentInformation["Name"] = "John Arman Geminiano"
+print(StudentInformation)
+
+StudentInformation.update({"Section" : "1-4"})
+print(StudentInformation)
+
+
+# Nested Dictionary
+
+MyInfo = {
+    "Name" : {
+        "First Name" : "John Arman",
+        "Middle Name" : "Lagat",
+        "Last Name" : "Geminiano"
+    },
+    "Age" : 19,
+    "Gender" : "Male",
+    "Hobbies": [
+        "Chess",
+        "Drawing",
+        "Writing"
+    ]
+}
+
+print(MyInfo)
+print(MyInfo["Age"])
+print(MyInfo["Name"]["First Name"])
+print(MyInfo["Name"]["Middle Name"])
+print(MyInfo["Hobbies"][2])
+
+
+
+____________________________________________________________________________________________________________________________
+# List of a List example
+
+fruitsA = ["apple", "apple", "banana", "grapes", "grapes", "grapes", "orange"]
+fruitsB = ["pomegranate", "pomegranate", "mango", "mango", "watermelon", "strawberry", "strawberry"]
+fruitsC = ["pineapple", "pineapple", "pineapple", "papaya", "papaya", "lychee", "lychee"]
+
+# Different lists
+FruitBasket = [fruitsA, fruitsB, fruitsC]
+print(FruitBasket)
+print(FruitBasket[2])
+print(FruitBasket[2][1])
+
+# All subjects in one list
+FruitBasket_Uno = fruitsA + fruitsB + fruitsC
+print(FruitBasket_Uno)
+
+
+# + ---> single list
+# , ---> list of a list
+
+
+fruitsA.extend(fruitsB)
+fruitsB.extend(fruitsC)
+print(fruitsA)
+
+____________________________________________________________________________________________________________________________
+# Set = does not allow duplicates; removes duplicates; always not in order
+
+fruitsA = {"apple", "apple", "banana", "grapes", "grapes", "grapes", "orange"}
+fruitsB = {"pomegranate", "pomegranate", "mango", "mango", "watermelon", "strawberry", "strawberry"}
+print(fruitsA)
+
+fruitsA.add("rambutan")
+print(fruitsA)
+
+FRUnion = fruitsA.union(fruitsB)
+print(FRUnion)
+
+fruitIntersect = fruitsA.intersection(fruitsB)
+print(fruitIntersect)
+
+fruitDiff1 = fruitsA.difference(fruitsB)
+print(fruitDiff1)
+
+fruitDiff2 = fruitsB.difference(fruitsA)
+print(fruitDiff2)
+
+
+# Lists of a set
+
+fruitsA = {"apple", "apple", "banana", "grapes", "grapes", "grapes", "orange"}
+fruitsB = {"pomegranate", "pomegranate", "mango", "mango", "watermelon", "strawberry", "strawberry"}
+
+fruitbasketList = [fruitsA, fruitsB]
+print(fruitbasketList)
+____________________________________________________________________________________________________________________________
+# Tuple
+
+fruitsA = ("apple", "apple", "banana", "grapes", "grapes", "grapes", "orange")
+print(fruitsA)
+
+print(fruitsA.index("orange"))
+print(fruitsA.count("grapes"))
+print(fruitsA[4])
+
+fruitsB = {"pomegranate", "pomegranate", "mango", "mango", "watermelon", "strawberry", "strawberry"}
+
+fruitBasket = (fruitsA, fruitsB)
+print(fruitBasket)
+
+myTuple = (
+    (1, 2, 3, "A"),
+    (4, 5, 6, "B"),
+)
+
+print(myTuple)
