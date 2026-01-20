@@ -28,13 +28,11 @@ class ElectronicsToolApp:
         self.setup_color_tab()
         self.setup_laws_tab()
 
-    # =====================================================
-    # TAB 1: SERIES / PARALLEL CALCULATOR
-    # =====================================================
+
     def setup_circuit_tab(self):
         frame = self.tab1
 
-        # Component Type
+        # Components
         type_frame = ttk.LabelFrame(frame, text="Component Type")
         type_frame.pack(fill="x", padx=10, pady=5)
 
@@ -54,7 +52,7 @@ class ElectronicsToolApp:
         ttk.Radiobutton(config_frame, text="Parallel",
                         variable=self.config_var, value="Parallel").pack(anchor="w")
 
-        # Add Values
+        # Values
         val_frame = ttk.LabelFrame(frame, text="Add Values")
         val_frame.pack(fill="both", expand=True, padx=10, pady=5)
 
@@ -111,13 +109,11 @@ class ElectronicsToolApp:
         except ZeroDivisionError:
             messagebox.showerror("Math Error", "Division by zero")
 
-    # =====================================================
-    # TAB 2: RESISTOR COLOR CODE
-    # =====================================================
+   #color coding electrocalculato
     def setup_color_tab(self):
         frame = self.tab2
 
-        # Data
+        # INFORMATION
         self.colors = ["Black", "Brown", "Red", "Orange", "Yellow",
                        "Green", "Blue", "Violet", "Gray", "White"]
         self.color_map = {c: i for i, c in enumerate(self.colors)}
@@ -129,7 +125,7 @@ class ElectronicsToolApp:
             "Gold": 5, "Silver": 10
         }
 
-        # Mode Selector
+        # Options
         mode_frame = ttk.LabelFrame(frame, text="Resistor Bands")
         mode_frame.pack(fill="x", padx=10, pady=5)
         self.band_mode = tk.IntVar(value=4)
@@ -138,7 +134,7 @@ class ElectronicsToolApp:
         ttk.Radiobutton(mode_frame, text="5-Band", variable=self.band_mode, value=5,
                         command=self.toggle_band_mode).pack(side="left", padx=10)
 
-        # Input Grid
+        # graduation
         grid = ttk.Frame(frame)
         grid.pack(padx=10, pady=5)
         self.band1 = tk.StringVar()
@@ -166,7 +162,7 @@ class ElectronicsToolApp:
                                  foreground="darkgreen")
         self.lbl_res.pack()
 
-        # Cheat Sheet
+        # Colorrrewes
         cheat = ttk.LabelFrame(frame, text="Resistor Color Code Cheat Sheet")
         cheat.pack(fill="both", expand=True, padx=10, pady=8)
 
@@ -214,9 +210,7 @@ class ElectronicsToolApp:
         except Exception:
             messagebox.showerror("Error", "Invalid band selection")
 
-    # =====================================================
-    # TAB 3: OHM'S & KIRCHHOFF'S LAWS
-    # =====================================================
+  #LAWS
     def setup_laws_tab(self):
         frame = self.tab3
 
@@ -291,3 +285,4 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = ElectronicsToolApp(root)
     root.mainloop()
+
