@@ -285,4 +285,6 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = ElectronicsToolApp(root)
     root.mainloop()
+GEMINIANO_Video.Recording = https://drive.google.com/drive/folders/1hMjWb9TGyXgJVT6cFfJ0g9v6PJ1cJV3T
+
 
